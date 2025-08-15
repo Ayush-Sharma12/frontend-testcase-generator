@@ -7,7 +7,6 @@
     "cra-template-pwa": "2.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^7.7.1",
     "react-scripts": "5.0.1"
   },
