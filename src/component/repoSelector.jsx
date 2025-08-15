@@ -13,7 +13,7 @@ export default function Repos() {
     const token = localStorage.getItem("github_token");
     if (token) {
       axios
-        .get(`${api_base}/api/github/repos?page=${page}`, {
+        .get(`${api_base}/github/repos?page=${page}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("github_token")}` },
         })
         .then((res) => {

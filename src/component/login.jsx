@@ -6,7 +6,7 @@ export default function Login() {
     
 
     const loginWithGitHub = () => {
-    window.location.href = `${api_base}/api/auth/github`;
+    window.location.href = `${api_base}/auth/github`;
   };
     return (
         <div style={styles.container}>

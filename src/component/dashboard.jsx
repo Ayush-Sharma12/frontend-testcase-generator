@@ -17,7 +17,7 @@ export default function Dashboard() {
     if (code) {
       // Step 1: Send code to backend to get access token
       axios
-        .get(`${api_base}/api/auth/github/callback?code=${code}`)
+        .get(`${api_base}/auth/github/callback?code=${code}`)
         .then((res) => {
           const token = res.data.access_token;
 

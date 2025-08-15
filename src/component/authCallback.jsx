@@ -9,7 +9,7 @@ export default function AuthCallback() {
     const code = new URLSearchParams(window.location.search).get("code");
     if (code) {
       axios
-        .get(`${api_base}/api/auth/github/callback?code=${code}`)
+        .get(`${api_base}/auth/github/callback?code=${code}`)
         .then((res) => {
             
             if(res.status===200)

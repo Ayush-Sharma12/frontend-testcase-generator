@@ -24,7 +24,7 @@ export default function RepoFiles() {
 
     axios
       .get(
-        `${api_base}/api/github/repos/${repo.owner.login}/${repo.name}/contents`,
+        `${api_base}/github/repos/${repo.owner.login}/${repo.name}/contents`,
         {
           params: { path },
           headers: { Authorization: `Bearer ${token}` },
@@ -50,7 +50,7 @@ export default function RepoFiles() {
     setViewContent(null);
     try {
       const res = await axios.get(
-        `${api_base}/api/github/repos/${repo.owner.login}/${repo.name}/file?path=${filePath}`,
+        `${api_base}/github/repos/${repo.owner.login}/${repo.name}/file?path=${filePath}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setViewContent(res.data.content);
@@ -68,7 +68,7 @@ export default function RepoFiles() {
     setTestCases(null);
     try {
       const res = await axios.post(
-        `${api_base}/api/github/repos/${repo.owner.login}/${repo.name}/generate-testcases`,
+        `${api_base}/github/repos/${repo.owner.login}/${repo.name}/generate-testcases`,
         { path: filePath },
         {
           headers: {
