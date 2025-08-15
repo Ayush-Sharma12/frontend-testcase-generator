@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { api_base } from "./const";
 
 export default function Repos() {
   const [repos, setRepos] = useState([]);
@@ -12,7 +13,7 @@ export default function Repos() {
     const token = localStorage.getItem("github_token");
     if (token) {
       axios
-        .get(`http://localhost:5000/api/github/repos?page=${page}`, {
+        .get(`${api_base}/api/github/repos?page=${page}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("github_token")}` },
         })
         .then((res) => {

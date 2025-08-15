@@ -1,8 +1,12 @@
 
+import { api_base } from "./const";
+
+
 export default function Login() {
+    
 
     const loginWithGitHub = () => {
-    window.location.href = "http://localhost:5000/api/auth/github";
+    window.location.href = `${api_base}/api/auth/github`;
   };
     return (
         <div style={styles.container}>

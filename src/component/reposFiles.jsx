@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loader from "./loader"; // Assuming you have a loader component
+import { api_base } from "./const";
 
 export default function RepoFiles() {
   const location = useLocation();
@@ -23,7 +24,7 @@ export default function RepoFiles() {
 
     axios
       .get(
-        `http://localhost:5000/api/github/repos/${repo.owner.login}/${repo.name}/contents`,
+        `${api_base}/api/github/repos/${repo.owner.login}/${repo.name}/contents`,
         {
           params: { path },
           headers: { Authorization: `Bearer ${token}` },
@@ -49,7 +50,7 @@ export default function RepoFiles() {
     setViewContent(null);
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/github/repos/${repo.owner.login}/${repo.name}/file?path=${filePath}`,
+        `${api_base}/api/github/repos/${repo.owner.login}/${repo.name}/file?path=${filePath}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setViewContent(res.data.content);
@@ -67,7 +68,7 @@ export default function RepoFiles() {
     setTestCases(null);
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/github/repos/${repo.owner.login}/${repo.name}/generate-testcases`,
+        `${api_base}/api/github/repos/${repo.owner.login}/${repo.name}/generate-testcases`,
         { path: filePath },
         {
           headers: {

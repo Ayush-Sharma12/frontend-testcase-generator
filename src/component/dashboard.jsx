@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "./loader"; // Assuming you have a loader component
+import { api_base } from "./const";
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -16,7 +17,7 @@ export default function Dashboard() {
     if (code) {
       // Step 1: Send code to backend to get access token
       axios
-        .get(`http://localhost:5000/api/auth/github/callback?code=${code}`)
+        .get(`${api_base}/api/auth/github/callback?code=${code}`)
         .then((res) => {
           const token = res.data.access_token;
 
@@ -65,7 +66,7 @@ export default function Dashboard() {
           </p>
 
           <a
-            href="http://localhost:5000/api/auth/github"
+            href={`${api_base}/api/auth/github`}
             style={{ textDecoration: "none" }}
           >
             <button style={styles.githubButton}>
